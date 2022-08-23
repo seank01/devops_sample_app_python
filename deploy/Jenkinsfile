@@ -10,7 +10,7 @@ pipeline {
     booleanParam(name : 'DEPLOY_WORKLOAD', defaultValue : true, description : 'DEPLOY_WORKLOAD')
 
     // CI
-    string(name : 'AWS_ACCOUNT_ID', defaultValue : '657976307134', description : 'AWS_ACCOUNT_ID')
+    string(name : 'AWS_ACCOUNT_ID', defaultValue : '755233231675', description : 'AWS_ACCOUNT_ID')
     string(name : 'DOCKER_IMAGE_NAME', defaultValue : 'demo', description : 'DOCKER_IMAGE_NAME')
     string(name : 'DOCKER_TAG', defaultValue : '1.0.0', description : 'DOCKER_TAG')
 
@@ -33,8 +33,8 @@ pipeline {
         agent { label 'build' }
         steps {
             dir("${env.WORKSPACE}") {
-                //sh 'docker build -t ${ECR_DOCKER_IMAGE}:${ECR_DOCKER_TAG} .'
-                sh 'docker build -t test:1 .'
+                sh 'docker build -t ${ECR_DOCKER_IMAGE}:${ECR_DOCKER_TAG} .'
+                //sh 'docker build -t test:1 .'
             }
         }
         post {
